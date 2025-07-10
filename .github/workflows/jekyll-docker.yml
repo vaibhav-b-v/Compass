@@ -30,10 +30,13 @@ jobs:
       - name: Run API tests
         continue-on-error: true
         run: |
-          mkdir -p results allure-results junit-results
+          mkdir -p results
           newman run "${{ github.workspace }}/postman/collections/COMPASS.json" \
-            -e "38447040-0b78d977-21bb-42af-99fd-b50705dafda6" \
-            --reporter-htmlextra-export results/report.html 
+            --folder "renewal-details" \
+            -e "${{ github.workspace }}/TESTING.postman_environment.json" \
+            -d "${{ github.workspace }}/API Test Case and Test Data - renewal-details.csv" \
+            --reporters cli,htmlextra \
+            --reporter-htmlextra-export results/report.html
       
       - name: Upload Newman Report
         if: always()
