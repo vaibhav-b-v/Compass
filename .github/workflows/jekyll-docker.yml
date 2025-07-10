@@ -1,0 +1,43 @@
+name: Automated API tests using Newman
+
+on: push
+
+jobs:
+  automated-api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+          
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install Newman and reporters
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
+          npm install -g newman-reporter-allure
+
+
+      - name: Run API tests
+        continue-on-error: true
+        run: |
+          mkdir -p results allure-results junit-results
+          newman run "${{ github.workspace }}/postman/collections/COMPASS.json" \
+            -e "38447040-0b78d977-21bb-42af-99fd-b50705dafda6" \
+            --reporter-htmlextra-export results/report.html 
+      
+      - name: Upload Newman Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-report
+          path: results/
