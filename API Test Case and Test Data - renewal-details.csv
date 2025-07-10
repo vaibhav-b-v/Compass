@@ -1,0 +1,29 @@
+test case,account,sortKey,sortOrder,cloudProvider,page,limit,inventoryFileId,,TEST CASE,VALIDATIONS
+Verifying valid all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,ASC,AZURE,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,valid test case,"Have checked in response for all the keys in the response 
+Have tested all the data types in the response
+Have validated the date format"
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,ASC,AWS,1,20,5a139ca4-0249-4927-ad1c-f14a66569df0,,invalid test case,Have tested for 401 un-authorised error
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,ASC,ISV,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,DESC,AZURE,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,DESC,GCP,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,DESC,AWS,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,DESC,,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,DESC,AWS,,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,DESC,AZURE,1,,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,DESC,AZURE,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if invalid the sortKey=QWEQWE value doesn't exist,b166091e-86ab-4410-886e-4ff2bcbf31ae,QWEQWE,DESC,AZURE,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,desc,azure,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if invalid limit is wrong but gracefully handled,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,desc,azure,1,-10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if page is wrong but gracefully handled,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,desc,azure,-1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if invalid wrong accountId is passed handled gracefully,"1234-invalid-uuid
+",contractEndDate,desc,azure,1,-10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if invalid wrong accountId is passed gracefully handled,,contractEndDate,desc,azure,-1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,desc,azure,1,10,5a139ca4-0249-4927-ad1c,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,productName,desc,azure,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if invalid sortKey is handled gracefully returning 500,b166091e-86ab-4410-886e-4ff2bcbf31ae,productname,desc,azure,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,cost,desc,azure,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,logo,desc,azure,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,marketplaceAvailability,desc,azure,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying  if all the path and query parameters are valid,b166091e-86ab-4410-886e-4ff2bcbf31ae,cost,desc,azure,1,10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying if passing string for page is invalid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,desc,AWS,"""1""",10,5a139ca4-0249-4927-ad1c-f14a66569df0,,,
+Verifying if passing string for limit is invalid,b166091e-86ab-4410-886e-4ff2bcbf31ae,contractEndDate,desc,AWS,1,"""10""",5a139ca4-0249-4927-ad1c-f14a66569df0,,,

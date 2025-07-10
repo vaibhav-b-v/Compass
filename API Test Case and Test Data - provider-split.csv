@@ -1,0 +1,15 @@
+test case,inventoryFileId,accountId,runPreScript,,TEST CASE,VALIDATIONS
+Verifying valid inventoryFileId and accountId,5a139ca4-0249-4927-ad1c-f14a66569df0,b166091e-86ab-4410-886e-4ff2bcbf31ae,FALSE,,For valid account and inventoryFileId,"Validated for correct status code and response message
+Have checked if the object exists
+Validation on the currency value using Regex
+To check if each providers possession sums upto 100%"
+Verifying valid inventoryFileId and accountId without authorisation,5a139ca4-0249-4927-ad1c-f14a66569df0,b166091e-86ab-4410-886e-4ff2bcbf31ae,TRUE,,For invalid account and inventoryFileId,"Check is to ensure that if status codes match (400,401,403,404)
+each response code meaning different has different message"
+Verifying valid inventoryFileId and invalid accountId,5a139ca4-0249-4927-ad1c-f14a66569df0,b166091e-86ab-4410-886e-,FALSE,,,
+Verifying invalid inventoryFileId and valid accountId,5a139ca4-0249-4927-ad1c-,b166091e-86ab-4410-886e-4ff2bcbf31ae,FALSE,,,
+Verifying passing empty string for inventoryFileId and valid accountId,,b166091e-86ab-4410-886e-4ff2bcbf31ae,FALSE,,,
+Verifying passing valid inventoryFileId and empty string for accountId,5a139ca4-0249-4927-ad1c-f14a66569df0,,FALSE,,,
+Verifying passing max length inventoryFileId and valid accountId,f14a66569df0b166091ef14a66569df0b166091e86ab86ab86ab44104ff2bcbf31aeb166091e86ab86ab886e4ff2bcbf31aeb166091e86ab86ab4ff2bcbf31aeb166091e86ab86ab-4410-886e-4ff2bcbf31ae,b166091e-86ab-4410-886e-4ff2bcbf31ae,FALSE,,,
+Verifying passing valid inventoryFileId and max lengthaccountId,5a139ca4-0249-4927-ad1c-f14a66569df0,f14a66569df0b166091ef14a66569df0b166091e86ab86ab86ab44104ff2bcbf31aeb166091e86ab86ab886e4ff2bcbf31aeb166091e86ab86ab4ff2bcbf31aeb166091e86ab86ab-4410-886e-4ff2bcbf31ae,FALSE,,,
+Verifying valid inventoryFileId and accountId,null,b166091e-86ab-4410-886e-4ff2bcbf31ae,FALSE,,,
+Verifying valid inventoryFileId and accountId,5a139ca4-0249-4927-ad1c-f14a66569df0,null,FALSE,,,
