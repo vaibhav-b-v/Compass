@@ -1,46 +1,55 @@
 name: Automated API tests using Newman
-
-on: push
-
+on: 
+  push:
 jobs:
   automated-api-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
+      - name: Checkout Repository
+        uses: actions/checkout@v4
       - name: Install Postman CLI
         run: |
-          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-          
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh         
       - name: Login to Postman CLI
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-      
-      - name: Install Newman and reporters
+      - name: Install Newman and Reporters
         run: |
           npm install -g newman
           npm install -g newman-reporter-htmlextra
           npm install -g newman-reporter-allure
-
-
-      - name: Run API tests
+      - name: Run API Tests for Renewal Details
         continue-on-error: true
         run: |
-          mkdir -p results
+          mkdir -p results1
           newman run "${{ github.workspace }}/postman/collections/COMPASS.json" \
             --folder "renewal-details" \
             -e "${{ github.workspace }}/TESTING.postman_environment.json" \
             -d "${{ github.workspace }}/API Test Case and Test Data - renewal-details.csv" \
             --reporters cli,htmlextra \
-            --reporter-htmlextra-export results/report.html
-      
-      - name: Upload Newman Report
+            --reporter-htmlextra-export results1/report.html
+      - name: Run API Tests for Provider Split
+        continue-on-error: true
+        run: |
+          mkdir -p results2
+          newman run "${{ github.workspace }}/postman/collections/COMPASS.json" \
+            --folder "provider-split" \
+            -e "${{ github.workspace }}/TESTING.postman_environment.json" \
+            -d "${{ github.workspace }}/API Test Case and Test Data - provider-split.csv" \
+            --reporters cli,htmlextra \
+            --reporter-htmlextra-export results2/report.html
+      - name: Upload Newman Report for Renewal Details
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: newman-report
-          path: results/
+          name: newman-report-renewal-details
+          path: results1/
+      - name: Upload Newman Report for Provider Split
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-report-provider-split
+          path: results2/
